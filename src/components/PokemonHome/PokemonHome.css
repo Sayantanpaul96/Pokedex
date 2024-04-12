@@ -1,0 +1,80 @@
+.pokedex {
+        border: 10px solid rgba(245, 32, 4, 0.473);
+        padding: 50px;
+        margin: 20px;
+        background-image: url('../../assets/pokemon-go-hd-po-1366x768.jpg');
+        background-size: s;
+        opacity: 80%;
+        background-position: center;
+        border-radius: 4%;
+    }
+.pokedexTitle {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 2.5rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        background: linear-gradient(180deg, rgba(255, 0, 0, 0.281), rgba(0, 0, 0, 0.37));
+        margin-bottom: 8px;
+}
+
+.totalpokemon {
+    text-align: right;
+    margin-top: 0%;
+    color: rgba(219, 219, 219, 0.938);
+    margin-bottom: 8px;
+    font-weight: bolder;
+}
+
+.totalpokemon:hover {
+    filter: drop-shadow(0 0 2em #e4e4e4);   
+}
+
+.version {
+    text-align: left;
+    margin-top: 8px;
+    color: rgba(219, 219, 219, 0.938);
+    margin-bottom: 8px;
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.version:hover {
+    filter: drop-shadow(0 0 2em #e4e4e4);   
+}
+
+.pagination {
+    text-align: right;
+    margin-top: 0%;
+    color: red;
+    margin-bottom: 8px;
+    
+}
+
+.pageArrows {
+    font-weight: bolder;
+    margin-top: 0px;
+    color: rgba(219, 219, 219, 0.938);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.pageArrows:hover {
+    filter: drop-shadow(0 0 2em #e4e4e4);   
+}
+
+.resetButton {
+    margin: 25px 230px 30px 210px;
+    color: rgb(255, 255, 255);
+    border: 4px #af15155e;
+    background: linear-gradient(270deg, #fd01013a, #ad8c8c00);
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bolder
+}
+
+.resetButton:hover {
+    filter: drop-shadow(0 0 2em #eeeaeae8);   
+}
