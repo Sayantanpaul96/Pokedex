@@ -6,6 +6,7 @@ import ImageMasonry from "../PokemonList/PokemonListMasony";
 import PokemonInformation from '../PokemonInformation/PokemonInfo';
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 import "./PokemonHome.css";
+import packageJson from '../../../package.json';
 
 const initialState = {
   limit: 20,
@@ -18,6 +19,8 @@ const initialState = {
 
 
 const PokemonHome = () => {
+  // constants
+  const pokedexVersion = packageJson.version;
   // states
   const [pokemonData, setPokemonData] = useState([]);
   const [totalPokemonData, setTotalPokemonData] = useState("");
@@ -26,7 +29,6 @@ const PokemonHome = () => {
     changePageHandler,
     initialState
   );
-  const [pokedexVersion] = useState("1.0.0");
   const [displaySelectedPokemon, setDisplaySelectedPokemon] = useState(null);
 
   useEffect(() => {
