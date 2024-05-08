@@ -19,18 +19,14 @@ const ImageMasonry = ({ pokemonData, setDisplaySelectedPokemon }) => {
       bordered={true}
       grid={{ gutter: displayData.length / 4, column: 4 }}
       size="medium"
-      split={true}     
+      split={true}
       dataSource={displayData}
       renderItem={(item) => (
         <List.Item className="listItem">
           <List.Item.Meta
             onClick={() => setDisplaySelectedPokemon(item)}
             className="listItemMeta"
-            title={
-              <a className="pokemonName">
-                {item.name.toUpperCase()}
-              </a>
-            }
+            title={<a className="pokemonName">{item.name.toUpperCase()}</a>}
           />
         </List.Item>
       )}
@@ -40,7 +36,7 @@ const ImageMasonry = ({ pokemonData, setDisplaySelectedPokemon }) => {
 
 ImageMasonry.propTypes = {
   pokemonData: PropTypes.array,
-  setDisplaySelectedPokemon: PropTypes.func
+  setDisplaySelectedPokemon: PropTypes.func,
 };
 
 export default ImageMasonry;

@@ -1,12 +1,12 @@
-import './App.css'
-import PokemonHome from './components/PokemonHome/PokemonHome';
+import "./App.css";
+import PokemonHome from "./components/PokemonHome/PokemonHome";
 
 function App() {
   return (
     <>
-    <PokemonHome />
+      <PokemonHome />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
