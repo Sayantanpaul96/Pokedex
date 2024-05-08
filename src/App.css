@@ -9,24 +9,33 @@
 } */
 
 #root {
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
+  padding: 0px;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  overflow: auto;
-  background: linear-gradient(315deg, rgb(11, 2, 90) 3%, rgb(0, 0, 0) 38%, rgb(4, 65, 65) 68%, rgba(88, 7, 104, 0.781) 98%);
+  overflow: hidden;
+  background: linear-gradient(
+    315deg,
+    rgb(11, 2, 90) 3%,
+    rgb(0, 0, 0) 38%,
+    rgb(4, 65, 65) 68%,
+    rgba(88, 7, 104, 0.781) 98%
+  );
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
 }
 
 @keyframes gradient {
   0% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
   50% {
-      background-position: 100% 100%;
+    background-position: 100% 100%;
   }
   100% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
 }
 
@@ -58,22 +67,22 @@
 
 @keyframes wave {
   2% {
-      transform: translateX(1);
+    transform: translateX(1);
   }
 
   25% {
-      transform: translateX(-25%);
+    transform: translateX(-25%);
   }
 
   50% {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   75% {
-      transform: translateX(-25%);
+    transform: translateX(-25%);
   }
 
   100% {
-      transform: translateX(1);
+    transform: translateX(1);
   }
 }

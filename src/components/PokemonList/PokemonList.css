@@ -10,7 +10,7 @@
 } */
 
 .listItemMeta {
-    color: white;
+  color: white;
 }
 
 .pokemonName {
@@ -22,13 +22,18 @@
 }
 
 .pokemonName:hover {
-    filter: drop-shadow(0 0 2em #e4e4e4fb);
-    color: blue;
+  filter: drop-shadow(0 0 2em #e4e4e4fb);
+  color: blue;
 }
 
 .demo-loadmore-list {
-  background: linear-gradient(360deg, rgba(255, 0, 0, 0.11), rgba(0, 0, 0, 0.37));
+  background: linear-gradient(
+    360deg,
+    rgba(255, 0, 0, 0.11),
+    rgba(0, 0, 0, 0.37)
+  );
   width: 100%;
+  /* height: 69%; */
   height: 80%;
   border-radius: 10px;
 }

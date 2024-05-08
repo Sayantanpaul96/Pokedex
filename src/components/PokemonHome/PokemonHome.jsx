@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useReducer, useState } from "react";
+import { Spin } from "antd";
 import changePageHandler from "../../helpers/changePageHandler";
 import ImageMasonry from "../PokemonList/PokemonListMasony";
-import PokemonInformation from '../PokemonInformation/PokemonInfo';
+import PokemonInformation from "../PokemonInformation/PokemonInfo";
 import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 import "./PokemonHome.css";
+import packageJson from "../../../package.json";
 
 const initialState = {
   limit: 20,
@@ -13,19 +15,25 @@ const initialState = {
 };
 
 // also try and stash the information that are already fetched.
+// add a loding infromation to the get information handler.
 
 const PokemonHome = () => {
+  // constants
+  const pokedexVersion = packageJson.version;
+
   // states
   const [pokemonData, setPokemonData] = useState([]);
   const [totalPokemonData, setTotalPokemonData] = useState("");
+  const [loadingPokemon, setLoadingPokemon] = useState(true);
   const [paginationState, dispatch] = useReducer(
     changePageHandler,
-    initialState
+    initialState,
   );
-  const [pokedexVersion] = useState("1.0.0");
   const [displaySelectedPokemon, setDisplaySelectedPokemon] = useState(null);
 
   useEffect(() => {
+    setLoadingPokemon(true);
+
     const getPokemUrl = `https://pokeapi.co/api/v2/pokemon?limit=${paginationState.limit}&offset=${paginationState.offset}`;
 
     axios.get(getPokemUrl).then(({ data }) => {
@@ -36,6 +44,8 @@ const PokemonHome = () => {
         setPokemonData(results);
       } catch (e) {
         throw new Error(e);
+      } finally {
+        setLoadingPokemon(false);
       }
     });
   }, [paginationState]);
@@ -82,23 +92,34 @@ const PokemonHome = () => {
     );
   };
 
+  const displayPokemonList = () => {
+    if (loadingPokemon) {
+      return <Spin size="large" />;
+    } else {
+      if (pokemonData.length === 0) {
+        return <div>No pokemon to display</div>;
+      }
+      return (
+        <ImageMasonry
+          pokemonData={pokemonData}
+          setDisplaySelectedPokemon={setDisplaySelectedPokemon}
+        />
+      );
+    }
+  };
+
   return (
     <>
-    <div className="pokedex">
-      <p className="pokedexTitle">POKEDEX V1.0</p>
-      <p className="totalpokemon">KNOWN POKEMONS: {totalPokemonData}</p>
-      <ImageMasonry
-        pokemonData={pokemonData}
-        setDisplaySelectedPokemon={setDisplaySelectedPokemon}
-      />
-      <p className="version">Version: {pokedexVersion}</p>
-      <div className="pagination">{getPaginationHandler()}</div>
-    </div>
-    {
-        displaySelectedPokemon && (
-          <PokemonInformation selectedPokemonData={displaySelectedPokemon}/>
-        )
-    }
+      <div className="pokedex">
+        <p className="pokedexTitle">POKEDEX V1.0</p>
+        <p className="totalpokemon">KNOWN POKEMONS: {totalPokemonData}</p>
+        {displayPokemonList()}
+        <p className="version">Version: {pokedexVersion}</p>
+        <div className="pagination">{getPaginationHandler()}</div>
+      </div>
+      {displaySelectedPokemon && (
+        <PokemonInformation selectedPokemonData={displaySelectedPokemon} />
+      )}
     </>
   );
 };

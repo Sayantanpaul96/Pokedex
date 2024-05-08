@@ -26,11 +26,7 @@ const ImageMasonry = ({ pokemonData, setDisplaySelectedPokemon }) => {
           <List.Item.Meta
             onClick={() => setDisplaySelectedPokemon(item)}
             className="listItemMeta"
-            title={
-              <a className="pokemonName">
-                {item.name.toUpperCase()}
-              </a>
-            }
+            title={<a className="pokemonName">{item.name.toUpperCase()}</a>}
           />
         </List.Item>
       )}
@@ -40,6 +36,7 @@ const ImageMasonry = ({ pokemonData, setDisplaySelectedPokemon }) => {
 
 ImageMasonry.propTypes = {
   pokemonData: PropTypes.array,
+  setDisplaySelectedPokemon: PropTypes.func,
 };
 
 export default ImageMasonry;
