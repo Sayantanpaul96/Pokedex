@@ -19,7 +19,7 @@ const ImageMasonry = ({ pokemonData, setDisplaySelectedPokemon }) => {
       bordered={true}
       grid={{ gutter: displayData.length / 4, column: 4 }}
       size="medium"
-      split={true}
+      split={true}     
       dataSource={displayData}
       renderItem={(item) => (
         <List.Item className="listItem">
@@ -40,6 +40,7 @@ const ImageMasonry = ({ pokemonData, setDisplaySelectedPokemon }) => {
 
 ImageMasonry.propTypes = {
   pokemonData: PropTypes.array,
+  setDisplaySelectedPokemon: PropTypes.func
 };
 
 export default ImageMasonry;
