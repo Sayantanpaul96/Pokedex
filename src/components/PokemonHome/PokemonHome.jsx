@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useReducer, useState } from "react";
-import { Spin } from "antd";
+import SpinnerLoader from '../shared/loadingSpinner';
 import changePageHandler from "../../helpers/changePageHandler";
 import ImageMasonry from "../PokemonList/PokemonListMasony";
 import PokemonInformation from "../PokemonInformation/PokemonInfo";
@@ -39,7 +39,6 @@ const PokemonHome = () => {
     axios.get(getPokemUrl).then(({ data }) => {
       try {
         const { count, results } = data;
-        console.log("result", count, results);
         setTotalPokemonData(count);
         setPokemonData(results);
       } catch (e) {
@@ -56,21 +55,25 @@ const PokemonHome = () => {
 
   // handle Pagination
   const LeftSwitch = () => {
+    setDisplaySelectedPokemon(null);
     dispatch({ type: "previous" });
   };
 
   const RightSwitch = () => {
+    setDisplaySelectedPokemon(null);
     dispatch({ type: "next" });
   };
 
   const resetButton = () => {
+    setDisplaySelectedPokemon(null);
     dispatch({ type: "reset" });
   };
 
   const getPaginationHandler = () => {
     return (
       <div className="nav">
-        <div className="pageArrows">
+        {/* only show page navigation in the case of main table */}
+        {displaySelectedPokemon ? null : <div className="pageArrows"> 
           {paginationState.currentPage !== 1 && (
             <DoubleLeftOutlined
               className="arrows"
@@ -84,7 +87,7 @@ const PokemonHome = () => {
               onClick={() => RightSwitch()}
             />
           )}
-        </div>
+        </div>}
         <div className="resetButton" onClick={() => resetButton()}>
           RESET
         </div>
@@ -94,7 +97,7 @@ const PokemonHome = () => {
 
   const displayPokemonList = () => {
     if (loadingPokemon) {
-      return <Spin size="large" />;
+      return(<SpinnerLoader />)
     } else {
       if (pokemonData.length === 0) {
         return <div>No pokemon to display</div>;
@@ -108,18 +111,19 @@ const PokemonHome = () => {
     }
   };
 
+  const toggleDisplay = () => {
+    return displaySelectedPokemon ? <PokemonInformation selectedPokemonData={displaySelectedPokemon} /> : displayPokemonList()
+  }
+
   return (
     <>
       <div className="pokedex">
         <p className="pokedexTitle">POKEDEX V1.0</p>
         <p className="totalpokemon">KNOWN POKEMONS: {totalPokemonData}</p>
-        {displayPokemonList()}
+          {toggleDisplay()}
         <p className="version">Version: {pokedexVersion}</p>
         <div className="pagination">{getPaginationHandler()}</div>
       </div>
-      {displaySelectedPokemon && (
-        <PokemonInformation selectedPokemonData={displaySelectedPokemon} />
-      )}
     </>
   );
 };

@@ -8,6 +8,7 @@
   background-size: s;
   opacity: 80%;
   background-position: center;
+  background-blend-mode: color-dodge;
   border-radius: 4%;
   width: -webkit-fill-available;
   height: -webkit-fill-available;
