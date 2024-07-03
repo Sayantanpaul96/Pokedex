@@ -10,7 +10,6 @@ const ImageMasonry = ({ pokemonData, setDisplaySelectedPokemon }) => {
 
   const [displayData, setDisplayData] = useState([]); // add the display data to scroll and work properly
 
-  console.log("pokemonData", pokemonData);
   return (
     <List
       className="demo-loadmore-list"
