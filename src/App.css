@@ -1,14 +1,12 @@
-/* #root {
-  max-width: 10000px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  background: linear-gradient(90deg, #ff0000, #000000);
-  background-blend-mode: darken;
-  max-height: 1280px;
-} */
-
 #root {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  flex: 1;
+}
+
+body {
   margin: 0px;
   padding: 0px;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
