@@ -1,17 +1,16 @@
 .pokedex {
   border: 10px solid rgba(245, 32, 4, 0.473);
   padding: 50px;
-  margin: 20px;
   background-image: url("../../../assets/pokemon-go-hd-po-1366x768.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
-  background-size: s;
+  background-size:cover;
+  overflow: hidden;
   opacity: 80%;
   background-position: center;
   background-blend-mode: color-dodge;
   border-radius: 4%;
-  width: -webkit-fill-available;
-  height: -webkit-fill-available;
+  width: 100%;
+  height: 70vh;
 }
 .pokedexTitle {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
