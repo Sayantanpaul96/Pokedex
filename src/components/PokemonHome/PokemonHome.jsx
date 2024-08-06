@@ -118,7 +118,7 @@ const PokemonHome = () => {
   return (
     <>
       <div className="pokedex">
-        <p className="pokedexTitle">POKEDEX V1.0</p>
+        <p className="pokedexTitle">POKEDEX V{pokedexVersion[0]}</p>
         <p className="totalpokemon">KNOWN POKEMONS: {totalPokemonData}</p>
           {toggleDisplay()}
         <p className="version">Version: {pokedexVersion}</p>
