@@ -16,7 +16,7 @@ const ImageMasonry = ({ pokemonData, setDisplaySelectedPokemon }) => {
       // loading={initLoading}
       itemLayout="horizontal"
       bordered={true}
-      grid={{ gutter: displayData.length / 4, column: 4 }}
+      grid={{ gutter: displayData.length, column: 4 }}
       size="medium"
       split={true}
       dataSource={displayData}
