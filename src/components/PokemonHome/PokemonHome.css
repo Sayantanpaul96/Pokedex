@@ -10,8 +10,18 @@
   background-blend-mode: color-dodge;
   border-radius: 4%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   height: 70vh;
+
+  @media(max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
 }
+
+
 .pokedexTitle {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 2.5rem;

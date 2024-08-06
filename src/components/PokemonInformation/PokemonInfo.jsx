@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Collapse } from "antd";
 import SpinnerLoader from '../shared/loadingSpinner'
+import "./PokemonInfo.css";
 
 const PokemonInformation = ({ selectedPokemonData }) => {
 
@@ -67,13 +68,13 @@ const PokemonInformation = ({ selectedPokemonData }) => {
 
   const getItemsToDisplay = () => {
     if(loading) {
-      <SpinnerLoader />
+      <SpinnerLoader className={"spinner"} />
     } else {
       return (
-        <>
-        <h2 style={{ alignItems:'center', }}>{capitalizeName(name)}</h2>
-        <Collapse items={pokemonInfo} style={{ background: 'white', opacity: '80%'}}/>
-        </>
+        <div className="container">
+        <h2 className="nameContainer">{capitalizeName(name)}</h2>
+        <Collapse items={pokemonInfo} className="collapse"/>
+        </div>
       )
     }
   };
