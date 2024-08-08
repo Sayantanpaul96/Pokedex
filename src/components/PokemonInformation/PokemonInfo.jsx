@@ -42,11 +42,23 @@ const PokemonInformation = ({ selectedPokemonData }) => {
       }, {
         key: 2,
         label: 'Moves',
-        children: getMoves.slice(0, 10).join(", "),
+        children: (
+          <ul style={{ paddingInlineStart: '20px' }}>
+            {getMoves.slice(0, 5).map((move, index) => (
+              <li key={index}>{move}</li>
+            ))}
+          </ul>
+        ),
       }, {
         key: 3,
         label: 'Abilities',
-        children: getAbilities.join(", "),
+        children: (
+          <ul style={{ paddingInlineStart: '20px' }}>
+            {getAbilities.map((ability, index) => (
+              <li key={index}>{ability}</li>
+            ))}
+          </ul>
+        ),
       });
   
       return data;
@@ -68,12 +80,17 @@ const PokemonInformation = ({ selectedPokemonData }) => {
 
   const getItemsToDisplay = () => {
     if(loading) {
-      <SpinnerLoader className={"spinner"} />
+      return <SpinnerLoader className={"spinner"} />
     } else {
       return (
-        <div className="container">
-        <h2 className="nameContainer">{capitalizeName(name)}</h2>
-        <Collapse items={pokemonInfo} className="collapse"/>
+        <div className="container" style={{ height: "min-content" }}>
+          <div className="header">
+          <div className="pokemonImage">
+            <img src="../../../assets/pokeball.png" alt="Pokemon Image" />
+          </div>
+          <h2 className="nameContainer">{capitalizeName(name)}</h2>
+          </div>
+          <Collapse items={pokemonInfo} className="collapse"/>
         </div>
       )
     }

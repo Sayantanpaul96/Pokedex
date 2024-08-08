@@ -1,7 +1,12 @@
 import { Spin } from "antd";
+import "./loadingSpinner.css";
 
 const SpinnerLoader = () => {
-  return (<Spin size="large" style={{ alignItems: "center" }} />)
+  return (
+    <div className="spinner-container">
+      <Spin size="large" className="spinner" />
+    </div>
+  );
 };
 
 export default SpinnerLoader;

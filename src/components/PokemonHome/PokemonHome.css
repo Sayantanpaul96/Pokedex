@@ -1,28 +1,33 @@
 .pokedex {
-  border: 10px solid rgba(245, 32, 4, 0.473);
+  /* border: 10px solid rgba(245, 32, 4, 0.473); */
   padding: 50px;
   background-image: url("../../../assets/pokemon-go-hd-po-1366x768.jpg");
   background-repeat: no-repeat;
-  background-size:cover;
-  overflow: hidden;
+  background-size: cover;
+  background-color: (0, 0, 0, 0.5);
+  overflow: auto;
   opacity: 80%;
   background-position: center;
   background-blend-mode: color-dodge;
-  border-radius: 4%;
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: 100vh;
+  flex: 1;
+  align-items: normal;
+  justify-content: top;
+}
 
-  @media(max-width: 1024px) {
+@media (max-width: 1024px) {
+  .pokedex {
     flex-direction: column;
-    align-items: center;
-    overflow: hidden;
+    align-items: auto;
+    overflow: auto;
   }
 }
 
-
 .pokedexTitle {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 2.5rem;
   text-align: center;
@@ -37,6 +42,17 @@
     rgba(0, 0, 0, 0.37)
   );
   margin-bottom: 8px;
+}
+
+.pokedexTitle:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.tooglestyle {
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 0.5%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .totalpokemon {
@@ -86,12 +102,35 @@
   margin: 25px 230px 30px 210px;
   color: rgb(255, 255, 255);
   border: 4px #af15155e;
-  background: linear-gradient(270deg, #fd01013a, #ad8c8c00);
+  background-color: rgba(97, 10, 10, 0.509);
   border-radius: 10px;
   text-align: center;
   font-weight: bolder;
 }
 
 .resetButton:hover {
-  filter: drop-shadow(0 0 2em #eeeaeae8);
+  border: 2px rgba(255, 255, 255, 0.516) solid;
+  filter: drop-shadow(0 0 2em #e4e4e4);
+  color: white;
+  background-color: rgba(97, 10, 10, 0.509);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .pokedex {
+    padding: 20px;
+  }
+
+  .pokedexTitle {
+    font-size: 2rem;
+  }
+
+  .totalpokemon,
+  .version {
+    font-size: 14px;
+  }
+
+  .resetButton {
+    margin: 20px 150px 25px 130px;
+  }
 }
