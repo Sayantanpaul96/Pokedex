@@ -89,7 +89,7 @@ const PokemonHome = () => {
           )}
         </div>}
         <div className="resetButton" onClick={() => resetButton()}>
-          RESET
+          {displaySelectedPokemon ? 'BACK' : 'RESET'}
         </div>
       </div>
     );
@@ -112,8 +112,16 @@ const PokemonHome = () => {
   };
 
   const toggleDisplay = () => {
-    return displaySelectedPokemon ? <PokemonInformation selectedPokemonData={displaySelectedPokemon} /> : displayPokemonList()
-  }
+    return (
+      <div className="tooglestyle">
+        {displaySelectedPokemon ? (
+          <PokemonInformation selectedPokemonData={displaySelectedPokemon} />
+        ) : (
+          displayPokemonList()
+        )}
+      </div>
+    );
+  };
 
   return (
     <>

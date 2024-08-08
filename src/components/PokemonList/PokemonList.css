@@ -1,13 +1,16 @@
 .listItem {
   margin: 25px 20px 30px 20px;
   border: 4px;
+  display: flex;
+  align-items: center;
   background: linear-gradient(90deg, #fa04043a, #00000000);
   border-radius: 10px;
+  transition: box-shadow 0.3s ease-in-out; /* Add transition for hover effect */
 }
 
-/* .listItem:hover {
-    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.87);
-} */
+.listItem:hover {
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.87);
+}
 
 .listItemMeta {
   color: white;
@@ -19,6 +22,7 @@
   font-size: 12px;
   line-height: 10px;
   font-weight: bolder;
+  transition: filter 0.3s ease-in-out, color 0.3s ease-in-out; /* Add transition for hover effect */
 }
 
 .pokemonName:hover {
@@ -33,7 +37,20 @@
     rgba(0, 0, 0, 0.37)
   );
   width: 100%;
-  /* height: 69%; */
-  height: 80%;
+  display: flex;
+  flex-direction: column;
+  flex: .30;
   border-radius: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .listItem {
+    margin: 15px 10px 20px 10px;
+  }
+
+  .pokemonName {
+    font-size: 10px;
+    line-height: 8px;
+  }
 }
