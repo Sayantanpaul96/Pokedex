@@ -16,6 +16,7 @@ Welcome to my PokeDex website! This project displays the names of all Pokémon a
 This PokeDex website serves as an interactive catalog of Pokémon. Users can browse through a list of Pokémon, and click on any Pokémon to view their specific attack moves.
 
 ## ✨ Features
+- **Responsive Design:** The website is fully responsive and looks great on all devices.
 - **Interactive Elements:** Clickable Pokémon names reveal their specific attack moves.
 - **Modern UI:** Uses Material-UI for a sleek and modern user interface.
 
@@ -28,7 +29,7 @@ To run this project locally, follow these steps:
     ```
 2. Navigate to the project directory:
     ```bash
-    cd pokedex-website
+    cd Pokedex
     ```
 3. Install dependencies:
     ```bash
